@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Scroll State</title>
+    <style>
+      /* https://developer.chrome.com/blog/css-scroll-state-queries */
+
+      #stuck-top {
+        .stuck-top {
+          container-type: scroll-state;
+          position: sticky;
+          top: 1rem;
+
+          @supports (container-type: scroll-state) {
+            > nav {
+              background-color: #fff;
+              border-radius: 8px;
+              margin-block-start: 1rem;
+              padding: 1rem;
+              transition: box-shadow 0.3s ease;
+
+              @container scroll-state(stuck: top) {
+                /* background: Highlight; */
+                /* color: HighlightText; */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+              }
+
+              h1 {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .sticky-slide {
+        background-color: hsl(265, 100%, 47%);
+        color: #fff;
+        height: 80vh;
+        margin-block-start: 3rem;
+        max-height: 40ex;
+        max-width: 300px;
+        border-radius: 1rem;
+        overflow-y: auto;
+
+        & > dl {
+          margin: 0;
+
+          &:last-child {
+            margin-block-end: 10rem;
+          }
+
+          & dt {
+            font-weight: bold;
+            color: hsl(270, 50%, 80%);
+
+            & header {
+              padding: 0.25em 1em;
+            }
+
+            &:first-child {
+              margin-block-start: 1em;
+            }
+
+            & dd {
+              margin: 0;
+              padding: 0.75em 1em;
+
+              &:last-child {
+                margin-block-end: 1em;
+              }
+            }
+          }
+        }
+
+        dt {
+          container-type: scroll-state;
+          position: sticky;
+          inset-block-start: 0;
+          inset-inline: 0;
+
+          header {
+            transition:
+              background 0.3s ease,
+              box-shadow 0.5s ease;
+
+            @container scroll-state(stuck: top) {
+              background-color: hsl(265, 100%, 27%);
+              box-shadow: 0 5px 5px #0003;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="stuck-top">
+      <div class="stuck-top">
+        <nav>
+          <h1>Nav</h1>
+        </nav>
+      </div>
+
+      <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio tenetur
+        nesciunt natus aliquid? Est nobis earum quam, animi nisi maxime adipisci
+        vitae illum corporis doloribus sapiente in alias quis harum vel
+        consequuntur quaerat omnis vero suscipit accusamus veniam, aut quia qui
+        iste. Nihil amet dicta alias quam eos tempora et perspiciatis reiciendis
+        quibusdam in! Unde nulla modi, beatae dolorum quidem ex sunt
+        reprehenderit aut, rerum quae inventore, hic tempore officiis? Sed
+        aspernatur rerum mollitia illo, magni similique. Voluptatem, facere
+        magnam! Animi molestias vel officia quasi doloremque consequuntur
+        reiciendis exercitationem ducimus assumenda repudiandae, perferendis
+        commodi quidem rerum quia? Tempore, soluta animi. Repudiandae sunt eos
+        doloremque velit voluptas eius nam atque rem dicta. Placeat vitae
+        suscipit corporis dolores ipsa! Minus nesciunt id repellendus, vero
+        asperiores quaerat facilis, officiis veritatis veniam rem voluptatum
+        accusantium rerum, ab culpa inventore cum maiores dolor nihil excepturi
+        corrupti fugit? Ab, laudantium, ullam exercitationem, dolores laborum
+        alias cum quis perspiciatis in pariatur obcaecati perferendis. Cumque,
+        eligendi! Quas reprehenderit animi natus dolore? Nobis, assumenda!
+        Blanditiis aliquid odit ducimus error mollitia in nobis quis perferendis
+        modi numquam veritatis reiciendis, illo ea consequatur dolorem hic vero
+        inventore. Assumenda rem quam nostrum similique omnis unde, magni ipsum
+        consequatur quod dolorem doloremque saepe ipsam, consectetur dolore
+        natus quidem! Nemo asperiores doloremque totam ipsam ipsa, eos libero
+        sed pariatur, esse a cum voluptates numquam temporibus veritatis natus
+        ratione incidunt officiis, quo illum expedita enim alias! Molestiae
+        pariatur perferendis maxime distinctio quis sit rem nam aspernatur culpa
+        similique quod ipsa totam, consequatur a cumque rerum modi soluta error
+        mollitia. Possimus, nam? Odit voluptatem ipsam iusto deleniti. Libero ad
+        asperiores incidunt assumenda facere laudantium voluptas sapiente
+        quaerat quas dolores numquam mollitia molestias modi nostrum
+        exercitationem consequuntur, eveniet veniam porro ratione unde.
+        Accusamus laborum adipisci esse reiciendis quae quibusdam dolores illo.
+        Beatae commodi in eligendi assumenda. Dolor esse voluptatum reiciendis
+        ea officia consectetur, mollitia vero quasi at fuga soluta asperiores
+        sequi nisi temporibus quisquam deleniti dolorem? Iusto necessitatibus,
+        harum doloremque animi magni eum. Temporibus nihil eum architecto? Amet,
+        ab consequuntur quas aspernatur quidem obcaecati iure doloribus corporis
+        veniam atque accusantium magnam praesentium soluta veritatis rem illo
+        voluptatem inventore sapiente a expedita ducimus nihil modi cum
+        architecto? Voluptas culpa odit sequi consectetur? Quo, temporibus
+        cupiditate ea soluta esse eaque, ratione nihil ab autem illo iusto,
+        adipisci et architecto velit animi ad quam nesciunt? Adipisci eaque
+        consequatur quas et incidunt voluptatibus quia quam alias autem beatae,
+        hic sequi voluptates harum magnam ipsam soluta doloremque minus
+        consectetur repellat dolore ratione cum? In cumque explicabo officiis
+        laboriosam, impedit nihil totam fugit tempore quod, nemo recusandae
+        aperiam optio? Ab veritatis possimus deserunt at minima nulla doloremque
+        est eos harum consectetur a odio sunt ducimus excepturi ex, nostrum
+        blanditiis, eveniet aut ipsum assumenda. Ratione similique odio rerum
+        qui debitis illo, alias animi facilis fugit culpa, ea molestias vitae
+        explicabo! Cumque eveniet perspiciatis magnam beatae asperiores maiores
+        amet ab omnis temporibus dicta at, adipisci tempora, ullam doloribus
+        dolor fugiat. Quam neque deleniti vero expedita provident pariatur a
+        necessitatibus quae incidunt quaerat! Earum iusto, nemo fuga natus
+        debitis ratione voluptatum velit? Iusto id repudiandae, distinctio in
+        ullam odit omnis aliquid quo reiciendis ducimus fugit? Suscipit
+        consequatur magni nemo possimus rem? Libero sint debitis, exercitationem
+        qui itaque odio ex dignissimos voluptas eos voluptatem iste dolore magni
+        inventore quibusdam quas consequatur molestias quaerat aperiam
+        praesentium rerum veniam recusandae voluptate! Dolore, iure! Molestias,
+        dolore, voluptas perferendis iste saepe praesentium expedita magnam sunt
+        et vel esse, maiores itaque? Perferendis sapiente harum in aperiam id
+        delectus ratione, nesciunt vel illum ullam labore minus. Est sequi,
+        adipisci nisi perferendis, ipsa delectus fuga vel beatae temporibus
+        officia autem saepe? Veritatis quam quod, at enim illo corrupti,
+        voluptas ipsam ipsum molestiae itaque, quasi dolor fuga obcaecati ullam
+        modi velit expedita. Non voluptates fuga dignissimos, neque doloribus id
+        eaque, recusandae fugiat veritatis iusto atque molestias! Non quis
+        praesentium amet voluptatum ex debitis possimus officia delectus et
+        sapiente modi eum vero perspiciatis, aut illo. Quasi aperiam vel
+        delectus natus, autem voluptatem placeat doloremque odit molestiae.
+        Veniam ea tenetur sunt voluptatem nemo, minima repellat, quasi corporis
+        autem unde impedit iste fugit laborum perspiciatis expedita distinctio
+        qui alias odit. Ex fugit laboriosam, iste ullam quasi nemo. Veniam
+        accusantium, molestias quasi numquam rerum nihil nam ea enim fugiat
+        ipsam aut cum magni dolorem dolor reprehenderit animi recusandae maiores
+        dolores eligendi blanditiis et temporibus mollitia beatae? Illo
+        doloremque odio sint error ducimus? Commodi saepe corporis iusto nihil
+        labore. Adipisci mollitia, ullam laboriosam perspiciatis, nulla esse
+        porro quidem commodi consequuntur consectetur omnis quisquam perferendis
+        sed vitae magni dolores sit, ut vero harum amet pariatur rerum! Dolores
+        molestias sequi maiores! Officia, adipisci! Ex, quidem? Officia
+        explicabo quae maiores, dolorum consequuntur laborum quia architecto
+        sapiente ab assumenda enim ipsum nulla? Qui saepe neque earum adipisci
+        est nam, cum omnis sapiente dolor, obcaecati ducimus ipsa fugiat
+        necessitatibus corporis facilis aliquid ad nostrum nihil? Voluptatem
+        pariatur, quis consequuntur sed temporibus accusantium reiciendis sit
+        numquam blanditiis quo adipisci suscipit ipsum nobis est maxime impedit
+        et voluptas ducimus voluptates deserunt ut nisi alias architecto quam.
+        Suscipit, maiores voluptate mollitia enim nihil, sunt dolor similique
+        voluptas dolore ratione temporibus ab sint. Exercitationem perspiciatis,
+        reiciendis porro quos nihil obcaecati facere sit voluptatem maxime
+        cupiditate ipsa itaque est dicta libero doloremque. Quidem inventore
+        temporibus magni ipsam, fugiat dolores ipsum neque ipsa ut, voluptates
+        nobis! Voluptates id delectus porro. Maiores, provident repellendus
+        voluptas repudiandae iure quas aperiam inventore labore tempora. Fugiat
+        beatae magnam aut quaerat totam magni quasi labore at autem earum id,
+        dolorem suscipit commodi, accusamus nobis ducimus deserunt officia quia
+        dignissimos in molestias animi! Adipisci eaque, consectetur aperiam,
+        incidunt sint eum voluptate consequuntur quas libero accusamus vitae
+        deserunt amet, labore voluptas saepe rem repellat cum ab? Nostrum
+        tempora quos perspiciatis quasi quas omnis non voluptates dolores
+        laudantium alias! Reprehenderit, eaque eveniet nisi dolorem optio
+        numquam quas necessitatibus. Repudiandae inventore, aperiam itaque
+        veniam quia natus dolores ipsam aliquam, tenetur, voluptatibus
+        temporibus quibusdam eos explicabo! Amet architecto molestiae, minima
+        fugit recusandae nisi atque numquam voluptatem, ipsum quam reprehenderit
+        explicabo quasi placeat minus id cum ad repudiandae! Dolores rerum sunt
+        perferendis.
+      </div>
+    </section>
+
+    <section id="sticky-slide">
+      <div class="sticky-slide">
+        <dl>
+          <dt>
+            <header>A</header>
+          </dt>
+          <dd>Aceyalone</dd>
+          <dd>Aesop Rock</dd>
+          <dd>Angle Haze</dd>
+          <dd>Atmosphere</dd>
+          <dd>Aceyalone</dd>
+          <dd>Aesop Rock</dd>
+          <dd>Angle Haze</dd>
+          <dd>Atmosphere</dd>
+        </dl>
+        <dl>
+          <dt>
+            <header>B</header>
+          </dt>
+          <dd>Babbletron</dd>
+          <dd>Bike For Three</dd>
+          <dd>Binary Star</dd>
+          <dd>Black Sheep</dd>
+          <dd>Babbletron</dd>
+          <dd>Bike For Three</dd>
+          <dd>Binary Star</dd>
+          <dd>Black Sheep</dd>
+        </dl>
+        <dl>
+          <dt>
+            <header>C</header>
+          </dt>
+          <dd>Cecil Otter</dd>
+          <dd>Chali 2na</dd>
+          <dd>Common Market</dd>
+          <dd>Czarface</dd>
+          <dd>Cecil Otter</dd>
+          <dd>Chali 2na</dd>
+          <dd>Common Market</dd>
+          <dd>Czarface</dd>
+        </dl>
+        <dl>
+          <dt>
+            <header>D</header>
+          </dt>
+          <dd>Danger Room</dd>
+          <dd>Darc Mind</dd>
+          <dd>Dem Atlas</dd>
+          <dd>Dessa</dd>
+          <dd>Danger Room</dd>
+          <dd>Darc Mind</dd>
+          <dd>Dem Atlas</dd>
+          <dd>Dessa</dd>
+        </dl>
+      </div>
+    </section>
+  </body>
+</html>

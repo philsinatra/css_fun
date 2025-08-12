@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline Media Queries</title>
+    <style>
+      /* https://developer.chrome.com/blog/if-article */
+      body {
+        background-color: if(
+          supports(color: oklch(0.7 0.185 232)): oklch(0.7 0.185 232) ;
+            else: #00adf3;
+        );
+
+        &::after {
+          content: if(
+            supports(color: oklch(0.7 0.185 232)): "Your browser supports OKLCH"
+              ; else: "Your browser does not support OKLCH" ;
+          );
+        }
+      }
+      button {
+        aspect-ratio: 1;
+        width: if(media(any-pointer: fine): 30px; else: 44px);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="theme-toggle">
+      <span>M</span>
+    </button>
+  </body>
+</html>
